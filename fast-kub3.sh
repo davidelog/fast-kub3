@@ -7,8 +7,8 @@ source ./functions.sh
 
 # pannello principale
 menu(){
+   clear
     cat $TITLE
-    clear
     echo "----------------------------------------"
     echo "Welcome to the FAST-KUB3 Installer"
     echo "----------------------------------------"
@@ -25,16 +25,20 @@ menu(){
         case $choice in
             1) clear; echo "You have selected the option 1"
                echo "Installing... "
-               install;;
+               install
+               exit 0;;
             2) clear; echo "You have selected the option 2"
                echo "Installing... "
                install
-               deploy_jellyfin;;
+               echo "wait 30 sec for let k3s startup" && sleep 30 
+               deploy_jellyfin
+               exit 0;;
             3) clear; echo "You have selected the option 3"
                echo "Removing... "
-               remove;;
+               remove
+               exit 0;;
             0) echo "Quitting..."
-               exit;;
+               exit 0;;
             *) echo "invalid option";;
         esac
     done

@@ -35,7 +35,7 @@ spec:
           claimName: jellyfin-cache-pvc
       - name: media
         hostPath:
-          path: /mnt/hdd
+          path: /home/$USERNAME/Videos/
           type: Directory
 ---
 apiVersion: v1
